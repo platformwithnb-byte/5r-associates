@@ -463,6 +463,19 @@ img {
     text-decoration: underline;
 }
 
+/* Services section: neutral Learn More appearance and hide when open */
+.services-section .service-link {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.services-section .service-link:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.service-card.open .service-link {
+    display: none;
+}
+
 .cards-vertical {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -606,12 +619,12 @@ img {
 }
 
 .work-card {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(10px);
     padding: var(--spacing-xl);
     border-radius: 14px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.24);
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
 }
@@ -625,6 +638,14 @@ img {
 .work-card h3 {
     color: var(--bg-white);
     margin-bottom: var(--spacing-sm);
+}
+.work-card p {
+    color: #f3f6fb;
+    opacity: 1;
+}
+.work-areas .section-title {
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
+    letter-spacing: 0.5px;
 }
 
 /* Coverage Section */

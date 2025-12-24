@@ -14,23 +14,30 @@ class ContentLoader {
 
     async loadContent() {
         try {
-            // Load common and page-specific content in parallel
+            const cacheBust = Date.now();
+
+            // Fetch selected language
             const [commonData, pageData] = await Promise.all([
-                fetch(`content/${this.currentLang}/common.json`).then(r => r.json()),
-                fetch(`content/${this.currentLang}/${this.pageName}.json`).then(r => r.json())
+                this.safeFetchJson(`content/${this.currentLang}/common.json?cb=${cacheBust}`),
+                this.safeFetchJson(`content/${this.currentLang}/${this.pageName}.json?cb=${cacheBust}`)
             ]);
 
-            this.content = { ...commonData, ...pageData };
+            // Optional English fallback to fill missing keys when switching to kn
+            let baseCommon = {}, basePage = {};
+            if (this.currentLang !== 'en') {
+                [baseCommon, basePage] = await Promise.all([
+                    this.safeFetchJson(`content/en/common.json?cb=${cacheBust}`),
+                    this.safeFetchJson(`content/en/${this.pageName}.json?cb=${cacheBust}`)
+                ]);
+            }
+
+            const base = this.deepMerge(baseCommon, basePage);
+            const overlay = this.deepMerge(commonData, pageData);
+            this.content = this.deepMerge(base, overlay);
             this.applyContent();
             return true;
         } catch (error) {
             console.error('Error loading content:', error);
-            // Fallback to English if language fails
-            if (this.currentLang !== 'en') {
-                this.currentLang = 'en';
-                localStorage.setItem('lang', 'en');
-                return this.loadContent();
-            }
             return false;
         }
     }
@@ -48,10 +55,16 @@ class ContentLoader {
         // Apply attributes (alt, title, placeholder, aria-label)
         document.querySelectorAll('[data-i18n-attr]').forEach(element => {
             const attrMap = element.getAttribute('data-i18n-attr');
+            if (!attrMap) return;
             attrMap.split(',').forEach(mapping => {
-                const [attr, key] = mapping.trim().split(':');
+                const trimmed = mapping.trim();
+                if (!trimmed) return;
+                const parts = trimmed.split(':');
+                const attr = (parts[0] || '').trim();
+                const key = (parts[1] || '').trim();
+                if (!attr || !key) return;
                 const value = this.getNestedValue(this.content, key);
-                if (value) {
+                if (value !== undefined && value !== null) {
                     element.setAttribute(attr, value);
                 }
             });
@@ -63,6 +76,27 @@ class ContentLoader {
 
     getNestedValue(obj, path) {
         return path.split('.').reduce((current, key) => current?.[key], obj);
+    }
+
+    deepMerge(target = {}, source = {}) {
+        const result = Array.isArray(target) ? [...target] : { ...target };
+        Object.keys(source || {}).forEach(key => {
+            const srcVal = source[key];
+            const tgtVal = result[key];
+            const isObj = v => v && typeof v === 'object' && !Array.isArray(v);
+            if (isObj(srcVal) && isObj(tgtVal)) {
+                result[key] = this.deepMerge(tgtVal, srcVal);
+            } else {
+                result[key] = srcVal;
+            }
+        });
+        return result;
+    }
+
+    async safeFetchJson(url) {
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`Failed to fetch ${url}: ${res.status}`);
+        return res.json();
     }
 
     async switchLanguage(lang) {
