@@ -11,7 +11,7 @@
         "overview": {
             "title": "Our Story",
             "founded": "Founded in 1999, 5R Associates has been serving clients for over 26 years with dedication, quality, and professionalism.",
-            "description": "We specialize in construction, interior design, and painting services for residential properties and non-commercial buildings. Our commitment to excellence and customer satisfaction has made us a trusted name in the industry."
+            "description": "We specialize in construction, interior design, and painting services for homes and apartments. Our commitment to excellence and customer satisfaction has made us a trusted name in the industry."
         },
         "mission": {
             "title": "Our Mission",
@@ -56,8 +56,8 @@
                 "description": "Homes, apartments, and residential complexes"
             },
             "nonCommercial": {
-                "title": "Non-Commercial Buildings",
-                "description": "Schools, hospitals, and institutional buildings"
+                "title": "Renovations & Extensions",
+                "description": "Upgrades, extensions, and modernizations for existing homes"
             }
         },
         "cta": {

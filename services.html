@@ -14,14 +14,14 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="nav-tagline" data-i18n="site.tagline">One stop solutions for all your construction needs.</div>
             <div class="nav-brand">
                 <a href="index.html">
                     <img src="assets/logo.svg" alt="5R Associates logo" class="nav-logo"
                         data-i18n-attr="alt:site.logoAlt">
                 </a>
             </div>
-            <button class="nav-toggle" id="navToggle" data-i18n-attr="aria-label:nav.toggleLabel" aria-label="Toggle navigation">
+            <button class="nav-toggle" id="navToggle" data-i18n-attr="aria-label:nav.toggleLabel"
+                aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -46,130 +46,97 @@
             <h1 data-i18n="services.header.title">Our Services</h1>
             <p data-i18n="services.header.subtitle">Comprehensive solutions for all your construction, design, and
                 painting needs</p>
+            <p class="hero-tagline" data-i18n="site.tagline">One stop solutions for all your construction needs.</p>
         </div>
     </section>
 
-    <!-- Services Accordion -->
+    <!-- Services Cards -->
     <section class="section services-section">
         <div class="container">
-            <!-- Construction -->
-            <div class="service-accordion" id="construction">
-                <button class="accordion-header" data-service="construction" aria-expanded="true"
-                    aria-controls="construction-content">
-                    <div class="accordion-title-group">
-                        <span class="accordion-category" data-i18n="services.categoryLabel">Category:</span>
-                        <h2 class="accordion-title" data-i18n="services.construction.title">Construction</h2>
-                    </div>
-                    <span class="accordion-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polyline points="6 9 12 15 18 9"></polyline>
+            <div class="services-grid cards-vertical">
+                <div class="service-card elevated" id="construction">
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="6" y="10" width="36" height="26" stroke="currentColor" stroke-width="3"
+                                fill="none" />
+                            <path d="M6 22 H42" stroke="currentColor" stroke-width="3" />
+                            <path d="M18 10 V36" stroke="currentColor" stroke-width="3" />
                         </svg>
-                    </span>
-                </button>
-                <div class="accordion-content active" id="construction-content">
-                    <div class="accordion-body">
-                        <p class="service-intro" data-i18n="services.construction.intro">We provide complete
-                            construction services for residential homes, apartments, and non-commercial buildings such
-                            as schools and hospitals.</p>
-
-                        <h3 data-i18n="services.construction.features.title">Our Construction Services Include:</h3>
-                        <ul class="service-list">
-                            <li data-i18n="services.construction.features.item1">New residential construction (homes &
-                                apartments)</li>
-                            <li data-i18n="services.construction.features.item2">Non-commercial buildings (schools,
-                                hospitals, institutions)</li>
-                            <li data-i18n="services.construction.features.item3">Renovations and extensions</li>
-                            <li data-i18n="services.construction.features.item4">Structural repairs and maintenance</li>
-                            <li data-i18n="services.construction.features.item5">Foundation and concrete work</li>
-                            <li data-i18n="services.construction.features.item6">Masonry and brickwork</li>
-                        </ul>
-
-                        <!-- Fabrication Sub-service -->
-                        <div class="sub-service">
-                            <h4 class="sub-service-title" data-i18n="services.construction.fabrication.title">MS and SS
-                                Fabrication</h4>
-                            <p data-i18n="services.construction.fabrication.description">Expert mild steel (MS) and
-                                stainless steel (SS) fabrication services for structural components, gates, railings,
-                                and custom metalwork.</p>
-                            <ul class="service-list">
-                                <li data-i18n="services.construction.fabrication.item1">Structural steel fabrication
-                                </li>
-                                <li data-i18n="services.construction.fabrication.item2">Gates and grilles</li>
-                                <li data-i18n="services.construction.fabrication.item3">Railings and staircases</li>
-                                <li data-i18n="services.construction.fabrication.item4">Custom metalwork</li>
-                            </ul>
-                        </div>
                     </div>
+                    <h3 data-i18n="services.cards.construction.title">Residential Construction</h3>
+                    <p data-i18n="services.cards.construction.description">Expert construction of houses and apartments
+                        with careful project management and quality craftsmanship.</p>
+                    <a href="contact.html" class="service-link" data-i18n="services.cards.learnMore">Learn More →</a>
                 </div>
-            </div>
 
-            <!-- Interior Design -->
-            <div class="service-accordion" id="interior">
-                <button class="accordion-header" data-service="interior" aria-expanded="false"
-                    aria-controls="interior-content">
-                    <div class="accordion-title-group">
-                        <span class="accordion-category" data-i18n="services.categoryLabel">Category:</span>
-                        <h2 class="accordion-title" data-i18n="services.interior.title">Interior Design</h2>
-                    </div>
-                    <span class="accordion-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polyline points="6 9 12 15 18 9"></polyline>
+                <div class="service-card elevated" id="painting">
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 30 L26 14 L34 22 L18 38" stroke="currentColor" stroke-width="3" fill="none" />
+                            <path d="M30 26 L38 18" stroke="currentColor" stroke-width="3" />
                         </svg>
-                    </span>
-                </button>
-                <div class="accordion-content" id="interior-content">
-                    <div class="accordion-body">
-                        <p class="service-intro" data-i18n="services.interior.intro">Transform your spaces with our
-                            creative and functional interior design solutions tailored to your lifestyle and
-                            preferences.</p>
-
-                        <h3 data-i18n="services.interior.features.title">Our Interior Design Services Include:</h3>
-                        <ul class="service-list">
-                            <li data-i18n="services.interior.features.item1">Complete home interior design</li>
-                            <li data-i18n="services.interior.features.item2">Modular kitchens and wardrobes</li>
-                            <li data-i18n="services.interior.features.item3">Living room and bedroom design</li>
-                            <li data-i18n="services.interior.features.item4">False ceiling and lighting design</li>
-                            <li data-i18n="services.interior.features.item5">Flooring and wall treatments</li>
-                            <li data-i18n="services.interior.features.item6">Custom furniture design</li>
-                            <li data-i18n="services.interior.features.item7">Space planning and layout</li>
-                        </ul>
                     </div>
+                    <h3 data-i18n="services.cards.painting.title">Painting Services</h3>
+                    <p data-i18n="services.cards.painting.description">Interior and exterior painting with premium
+                        finishes, surface prep, and long-lasting protection.</p>
+                    <a href="contact.html" class="service-link" data-i18n="services.cards.learnMore">Learn More →</a>
                 </div>
-            </div>
 
-            <!-- Painting -->
-            <div class="service-accordion" id="painting">
-                <button class="accordion-header" data-service="painting" aria-expanded="false"
-                    aria-controls="painting-content">
-                    <div class="accordion-title-group">
-                        <span class="accordion-category" data-i18n="services.categoryLabel">Category:</span>
-                        <h2 class="accordion-title" data-i18n="services.painting.title">Painting</h2>
-                    </div>
-                    <span class="accordion-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2">
-                            <polyline points="6 9 12 15 18 9"></polyline>
+                <div class="service-card elevated" id="interior">
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="10" y="10" width="28" height="28" stroke="currentColor" stroke-width="3"
+                                fill="none" />
+                            <path d="M18 20 H30 V32 H18 Z" stroke="currentColor" stroke-width="2" />
                         </svg>
-                    </span>
-                </button>
-                <div class="accordion-content" id="painting-content">
-                    <div class="accordion-body">
-                        <p class="service-intro" data-i18n="services.painting.intro">Professional painting services to
-                            refresh and beautify your residential and non-commercial properties.</p>
-
-                        <h3 data-i18n="services.painting.features.title">Our Painting Services Include:</h3>
-                        <ul class="service-list">
-                            <li data-i18n="services.painting.features.item1">Interior painting (homes & apartments)</li>
-                            <li data-i18n="services.painting.features.item2">Exterior painting and waterproofing</li>
-                            <li data-i18n="services.painting.features.item3">Texture and decorative finishes</li>
-                            <li data-i18n="services.painting.features.item4">Wood and metal painting</li>
-                            <li data-i18n="services.painting.features.item5">Wall preparation and repairs</li>
-                            <li data-i18n="services.painting.features.item6">Color consultation</li>
-                            <li data-i18n="services.painting.features.item7">Premium brand paints</li>
-                        </ul>
                     </div>
+                    <h3 data-i18n="services.cards.interior.title">Interior Design</h3>
+                    <p data-i18n="services.cards.interior.description">Functional, stylish interiors with space
+                        planning, lighting, and material selection tailored to you.</p>
+                    <a href="contact.html" class="service-link" data-i18n="services.cards.learnMore">Learn More →</a>
+                </div>
+
+                <div class="service-card elevated" id="fabrication">
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 34 L12 14 L36 14 L36 34 Z" stroke="currentColor" stroke-width="3"
+                                fill="none" />
+                            <path d="M12 26 L36 26" stroke="currentColor" stroke-width="3" />
+                            <circle cx="18" cy="20" r="2" fill="currentColor" />
+                            <circle cx="30" cy="30" r="2" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <h3 data-i18n="services.cards.fabrication.title">MS and SS Fabrication</h3>
+                    <p data-i18n="services.cards.fabrication.description">Custom mild and stainless steel fabrication
+                        for gates, railings, structures, and bespoke metalwork.</p>
+                    <a href="contact.html" class="service-link" data-i18n="services.cards.learnMore">Learn More →</a>
+                </div>
+
+                <div class="service-card elevated" id="renovations">
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 34 L12 16 L24 10 L36 16 L36 34 Z" stroke="currentColor" stroke-width="3"
+                                fill="none" />
+                            <path d="M20 34 V24 H28 V34" stroke="currentColor" stroke-width="3" />
+                        </svg>
+                    </div>
+                    <h3 data-i18n="services.cards.renovations.title">Renovations</h3>
+                    <p data-i18n="services.cards.renovations.description">Upgrades, extensions, and makeovers that
+                        modernize homes while respecting existing structures.</p>
+                    <a href="contact.html" class="service-link" data-i18n="services.cards.learnMore">Learn More →</a>
+                </div>
+
+                <div class="service-card elevated" id="project-management">
+                    <div class="service-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="14" r="6" stroke="currentColor" stroke-width="3" />
+                            <path d="M12 38 C12 28 36 28 36 38" stroke="currentColor" stroke-width="3" fill="none" />
+                        </svg>
+                    </div>
+                    <h3 data-i18n="services.cards.management.title">Project Management</h3>
+                    <p data-i18n="services.cards.management.description">End-to-end scheduling, budgeting, vendor
+                        coordination, and quality control to keep projects on track.</p>
+                    <a href="contact.html" class="service-link" data-i18n="services.cards.learnMore">Learn More →</a>
                 </div>
             </div>
         </div>

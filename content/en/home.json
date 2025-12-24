@@ -16,7 +16,7 @@
             "learnMore": "Learn More →",
             "construction": {
                 "title": "Construction",
-                "description": "Complete construction services for residential and non-commercial buildings"
+                "description": "Complete construction services for homes and apartments"
             },
             "interior": {
                 "title": "Interior Design",
@@ -24,7 +24,7 @@
             },
             "painting": {
                 "title": "Painting",
-                "description": "Professional painting services for homes, apartments, and commercial spaces"
+                "description": "Professional painting services for homes and apartments"
             }
         },
         "workAreas": {
