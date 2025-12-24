@@ -1,0 +1,50 @@
+{
+    "meta": {
+        "title": "5R Associates - Your Trusted Construction Partner"
+    },
+    "home": {
+        "hero": {
+            "title": "Building Dreams, Crafting Spaces",
+            "subtitle": "Professional construction, interior design, and painting services for over 26 years",
+            "ctaPrimary": "Get a Quote",
+            "ctaSecondary": "View Our Work"
+        },
+        "services": {
+            "title": "Our Services",
+            "subtitle": "Comprehensive solutions for all your construction needs",
+            "learnMore": "Learn More →",
+            "construction": {
+                "title": "Construction",
+                "description": "Complete construction services for residential and non-commercial buildings"
+            },
+            "interior": {
+                "title": "Interior Design",
+                "description": "Transform your spaces with creative and functional interior design solutions"
+            },
+            "painting": {
+                "title": "Painting",
+                "description": "Professional painting services for homes, apartments, and commercial spaces"
+            }
+        },
+        "workAreas": {
+            "title": "Where We Work",
+            "intraDistrict": {
+                "title": "Intra-District",
+                "description": "Serving all areas within our local district"
+            },
+            "interCity": {
+                "title": "Inter-City",
+                "description": "Projects across multiple cities"
+            },
+            "interState": {
+                "title": "Inter-State",
+                "description": "We handle projects across state boundaries"
+            }
+        },
+        "cta": {
+            "title": "Ready to Start Your Project?",
+            "description": "Get in touch with us today for a free consultation",
+            "button": "Contact Us Now"
+        }
+    }
+}

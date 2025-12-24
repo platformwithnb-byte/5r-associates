@@ -1,0 +1,68 @@
+{
+    "meta": {
+        "title": "About Us - 5R Associates"
+    },
+    "about": {
+        "header": {
+            "title": "About 5R Associates",
+            "subtitle": "Building excellence since 1999"
+        },
+        "overview": {
+            "title": "Our Story",
+            "founded": "Founded in 1999, 5R Associates has been serving clients for over 26 years with dedication, quality, and professionalism.",
+            "description": "We specialize in construction, interior design, and painting services for residential properties and non-commercial buildings. Our commitment to excellence and customer satisfaction has made us a trusted name in the industry."
+        },
+        "mission": {
+            "title": "Our Mission",
+            "description": "To deliver exceptional construction, design, and painting services that exceed client expectations while maintaining the highest standards of quality and professionalism."
+        },
+        "vision": {
+            "title": "Our Vision",
+            "description": "To be the most trusted and preferred partner for construction and design services across the region, known for innovation, reliability, and customer-centric solutions."
+        },
+        "whyUs": {
+            "title": "Why Choose Us",
+            "experience": {
+                "title": "26+ Years Experience",
+                "description": "Established in 1999, we bring over two decades of industry expertise"
+            },
+            "quality": {
+                "title": "Quality Assurance",
+                "description": "We use premium materials and follow best practices in every project"
+            },
+            "professionals": {
+                "title": "Expert Professionals",
+                "description": "Skilled and certified team members dedicated to your project"
+            },
+            "timely": {
+                "title": "Timely Delivery",
+                "description": "We complete projects on schedule without compromising quality"
+            },
+            "comprehensive": {
+                "title": "Comprehensive Services",
+                "description": "Construction, interior design, and painting - all under one roof"
+            },
+            "coverage": {
+                "title": "Wide Coverage",
+                "description": "Serving intra-district, inter-city, and inter-state projects"
+            }
+        },
+        "serviceAreas": {
+            "title": "Our Service Areas",
+            "subtitle": "We undertake projects across multiple locations",
+            "residential": {
+                "title": "Residential Projects",
+                "description": "Homes, apartments, and residential complexes"
+            },
+            "nonCommercial": {
+                "title": "Non-Commercial Buildings",
+                "description": "Schools, hospitals, and institutional buildings"
+            }
+        },
+        "cta": {
+            "title": "Partner With Us",
+            "description": "Experience the 5R Associates difference in your next project",
+            "button": "Get in Touch"
+        }
+    }
+}

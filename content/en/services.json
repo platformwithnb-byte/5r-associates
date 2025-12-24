@@ -1,0 +1,73 @@
+{
+    "meta": {
+        "title": "Our Services - 5R Associates"
+    },
+    "services": {
+        "header": {
+            "title": "Our Services",
+            "subtitle": "Comprehensive solutions for all your construction, design, and painting needs"
+        },
+        "categoryLabel": "Category:",
+        "construction": {
+            "title": "Construction",
+            "intro": "We provide complete construction services for residential homes, apartments, and non-commercial buildings such as schools and hospitals.",
+            "features": {
+                "title": "Our Construction Services Include:",
+                "item1": "New residential construction (homes & apartments)",
+                "item2": "Non-commercial buildings (schools, hospitals, institutions)",
+                "item3": "Renovations and extensions",
+                "item4": "Structural repairs and maintenance",
+                "item5": "Foundation and concrete work",
+                "item6": "Masonry and brickwork"
+            },
+            "fabrication": {
+                "title": "MS and SS Fabrication",
+                "description": "Expert mild steel (MS) and stainless steel (SS) fabrication services for structural components, gates, railings, and custom metalwork.",
+                "item1": "Structural steel fabrication",
+                "item2": "Gates and grilles",
+                "item3": "Railings and staircases",
+                "item4": "Custom metalwork"
+            }
+        },
+        "interior": {
+            "title": "Interior Design",
+            "intro": "Transform your spaces with our creative and functional interior design solutions tailored to your lifestyle and preferences.",
+            "features": {
+                "title": "Our Interior Design Services Include:",
+                "item1": "Complete home interior design",
+                "item2": "Modular kitchens and wardrobes",
+                "item3": "Living room and bedroom design",
+                "item4": "False ceiling and lighting design",
+                "item5": "Flooring and wall treatments",
+                "item6": "Custom furniture design",
+                "item7": "Space planning and layout"
+            }
+        },
+        "painting": {
+            "title": "Painting",
+            "intro": "Professional painting services to refresh and beautify your residential and non-commercial properties.",
+            "features": {
+                "title": "Our Painting Services Include:",
+                "item1": "Interior painting (homes & apartments)",
+                "item2": "Exterior painting and waterproofing",
+                "item3": "Texture and decorative finishes",
+                "item4": "Wood and metal painting",
+                "item5": "Wall preparation and repairs",
+                "item6": "Color consultation",
+                "item7": "Premium brand paints"
+            }
+        },
+        "coverage": {
+            "title": "Service Coverage",
+            "description": "We serve residential homes, apartments, and non-commercial buildings including schools and hospitals across:",
+            "intraDistrict": "Intra-District Projects",
+            "interCity": "Inter-City Projects",
+            "interState": "Inter-State Projects"
+        },
+        "cta": {
+            "title": "Need Expert Construction Services?",
+            "description": "Contact us today to discuss your project requirements",
+            "button": "Get a Free Quote"
+        }
+    }
+}

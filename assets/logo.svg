@@ -1,0 +1,27 @@
+<svg width="200" height="80" viewBox="0 0 200 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background shape -->
+  <rect x="5" y="15" width="50" height="50" fill="#1976D2" opacity="0.1" rx="4"/>
+  
+  <!-- Building/Construction icon -->
+  <path d="M15 55 L15 25 L30 25 L30 55 Z" fill="#1976D2"/>
+  <path d="M32 55 L32 20 L47 20 L47 55 Z" fill="#00897B"/>
+  <rect x="17" y="30" width="4" height="4" fill="white"/>
+  <rect x="24" y="30" width="4" height="4" fill="white"/>
+  <rect x="17" y="38" width="4" height="4" fill="white"/>
+  <rect x="24" y="38" width="4" height="4" fill="white"/>
+  <rect x="17" y="46" width="4" height="4" fill="white"/>
+  <rect x="24" y="46" width="4" height="4" fill="white"/>
+  <rect x="34" y="25" width="4" height="4" fill="white"/>
+  <rect x="41" y="25" width="4" height="4" fill="white"/>
+  <rect x="34" y="33" width="4" height="4" fill="white"/>
+  <rect x="41" y="33" width="4" height="4" fill="white"/>
+  <rect x="34" y="41" width="4" height="4" fill="white"/>
+  <rect x="41" y="41" width="4" height="4" fill="white"/>
+  
+  <!-- Text: 5R Associates -->
+  <text x="65" y="38" font-family="Montserrat, sans-serif" font-weight="800" font-size="28" fill="#1976D2">5R</text>
+  <text x="65" y="58" font-family="Inter, sans-serif" font-weight="600" font-size="14" fill="#00897B">Associates</text>
+  
+  <!-- Tagline indicator (small line) -->
+  <line x1="65" y1="62" x2="140" y2="62" stroke="#FF8A00" stroke-width="2"/>
+</svg>

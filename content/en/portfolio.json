@@ -1,0 +1,22 @@
+{
+    "meta": {
+        "title": "Our Portfolio - 5R Associates"
+    },
+    "portfolio": {
+        "header": {
+            "title": "Our Portfolio",
+            "subtitle": "Explore our completed projects across construction, interior design, and painting"
+        },
+        "filters": {
+            "all": "All Projects",
+            "construction": "Construction",
+            "interior": "Interior Design",
+            "painting": "Painting"
+        },
+        "cta": {
+            "title": "Ready to Start Your Project?",
+            "description": "Let us bring your vision to life with our expertise and dedication",
+            "button": "Contact Us Today"
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "site": {
+        "tagline": "One stop solutions for all your construction needs.",
+        "logoAlt": "5R Associates logo"
+    },
+    "nav": {
+        "home": "Home",
+        "services": "Services",
+        "about": "About",
+        "portfolio": "Portfolio",
+        "contact": "Contact"
+    },
+    "footer": {
+        "about": {
+            "title": "5R Associates",
+            "description": "Professional construction, interior design, and painting services since 1999"
+        },
+        "quickLinks": {
+            "title": "Quick Links"
+        },
+        "services": {
+            "title": "Services",
+            "construction": "Construction",
+            "interior": "Interior Design",
+            "painting": "Painting"
+        },
+        "contact": {
+            "title": "Contact Info",
+            "phone": "Phone: [To be added]",
+            "email": "Email: [To be added]"
+        },
+        "copyright": "© 2025 5R Associates. All rights reserved."
+    }
+}

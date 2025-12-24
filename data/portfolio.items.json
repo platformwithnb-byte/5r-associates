@@ -1,0 +1,149 @@
+{
+    "items": [
+        {
+            "id": "modern-home-construction",
+            "title": "Modern Residential Home",
+            "description": "Complete construction of a 2500 sq.ft modern residential home with contemporary design and premium finishes.",
+            "serviceType": "construction",
+            "sector": "residential",
+            "propertyType": "home",
+            "workArea": "interCity",
+            "location": {
+                "city": "Bangalore",
+                "state": "Karnataka"
+            },
+            "year": 2024,
+            "coverImage": "assets/images/portfolio/construction-1.jpg",
+            "featured": true
+        },
+        {
+            "id": "apartment-complex",
+            "title": "Luxury Apartment Complex",
+            "description": "Construction of 8-unit apartment complex with modern amenities and sustainable design.",
+            "serviceType": "construction",
+            "sector": "residential",
+            "propertyType": "apartment",
+            "workArea": "intraDistrict",
+            "location": {
+                "city": "Mysuru",
+                "state": "Karnataka"
+            },
+            "year": 2023,
+            "coverImage": "assets/images/portfolio/construction-2.jpg",
+            "featured": false
+        },
+        {
+            "id": "school-building",
+            "title": "Primary School Building",
+            "description": "Complete construction of a 3-story school building with 20 classrooms, labs, and facilities.",
+            "serviceType": "construction",
+            "sector": "nonCommercial",
+            "propertyType": "school",
+            "workArea": "interState",
+            "location": {
+                "city": "Mangalore",
+                "state": "Karnataka"
+            },
+            "year": 2023,
+            "coverImage": "assets/images/portfolio/construction-3.jpg",
+            "featured": true
+        },
+        {
+            "id": "hospital-wing",
+            "title": "Hospital Extension Wing",
+            "description": "Construction of new hospital wing with MS and SS fabrication for structural components.",
+            "serviceType": "construction",
+            "sector": "nonCommercial",
+            "propertyType": "hospital",
+            "workArea": "interCity",
+            "subService": "fabrication",
+            "location": {
+                "city": "Hubli",
+                "state": "Karnataka"
+            },
+            "year": 2024,
+            "coverImage": "assets/images/portfolio/construction-4.jpg",
+            "featured": true
+        },
+        {
+            "id": "modern-home-interior",
+            "title": "Contemporary Home Interior",
+            "description": "Complete interior design transformation with modular kitchen, false ceiling, and custom furniture.",
+            "serviceType": "interior",
+            "sector": "residential",
+            "propertyType": "home",
+            "workArea": "intraDistrict",
+            "location": {
+                "city": "Mysuru",
+                "state": "Karnataka"
+            },
+            "year": 2024,
+            "coverImage": "assets/images/portfolio/interior-1.jpg",
+            "featured": true
+        },
+        {
+            "id": "apartment-interior",
+            "title": "Luxury Apartment Interior",
+            "description": "Modern interior design for 3BHK apartment with smart lighting and premium finishes.",
+            "serviceType": "interior",
+            "sector": "residential",
+            "propertyType": "apartment",
+            "workArea": "interCity",
+            "location": {
+                "city": "Bangalore",
+                "state": "Karnataka"
+            },
+            "year": 2024,
+            "coverImage": "assets/images/portfolio/interior-2.jpg",
+            "featured": false
+        },
+        {
+            "id": "villa-interior",
+            "title": "Premium Villa Interiors",
+            "description": "Elegant interior design for 4000 sq.ft villa with custom woodwork and designer lighting.",
+            "serviceType": "interior",
+            "sector": "residential",
+            "propertyType": "home",
+            "workArea": "interState",
+            "location": {
+                "city": "Coorg",
+                "state": "Karnataka"
+            },
+            "year": 2023,
+            "coverImage": "assets/images/portfolio/interior-3.jpg",
+            "featured": true
+        },
+        {
+            "id": "residential-painting",
+            "title": "Complete Home Painting",
+            "description": "Interior and exterior painting with texture finish and waterproofing for residential home.",
+            "serviceType": "painting",
+            "sector": "residential",
+            "propertyType": "home",
+            "workArea": "intraDistrict",
+            "location": {
+                "city": "Mysuru",
+                "state": "Karnataka"
+            },
+            "year": 2024,
+            "coverImage": "assets/images/portfolio/painting-1.jpg",
+            "featured": false
+        },
+        {
+            "id": "apartment-painting",
+            "title": "Apartment Complex Painting",
+            "description": "Exterior painting and waterproofing for 12-unit apartment complex with premium paints.",
+            "serviceType": "painting",
+            "sector": "residential",
+            "propertyType": "apartment",
+            "workArea": "interCity",
+            "location": {
+                "city": "Hassan",
+                "state": "Karnataka"
+            },
+            "year": 2023,
+            "coverImage": "assets/images/portfolio/painting-2.jpg",
+            "featured": false
+        }
+    ]
+}

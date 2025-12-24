@@ -1,0 +1,46 @@
+{
+    "meta": {
+        "title": "Contact Us - 5R Associates"
+    },
+    "contact": {
+        "header": {
+            "title": "Contact Us",
+            "subtitle": "Get in touch for a free consultation and quote"
+        },
+        "form": {
+            "title": "Send Us a Message",
+            "nameLabel": "Your Name",
+            "namePlaceholder": "Enter your name",
+            "emailLabel": "Email Address",
+            "emailPlaceholder": "Enter your email",
+            "phoneLabel": "Phone Number",
+            "phonePlaceholder": "Enter your phone number",
+            "serviceLabel": "Service Required",
+            "serviceSelect": "Select a service",
+            "serviceConstruction": "Construction",
+            "serviceInterior": "Interior Design",
+            "servicePainting": "Painting",
+            "serviceFabrication": "MS/SS Fabrication",
+            "serviceMultiple": "Multiple Services",
+            "messageLabel": "Project Details",
+            "messagePlaceholder": "Tell us about your project requirements...",
+            "submit": "Send Message"
+        },
+        "info": {
+            "title": "Get In Touch",
+            "description": "We're here to answer your questions and discuss your project requirements.",
+            "phoneTitle": "Phone",
+            "phoneNumber": "[To be added]",
+            "phoneAvailability": "Available for calls and enquiries",
+            "emailTitle": "Email",
+            "emailAddress": "[To be added]",
+            "emailResponse": "We respond within 24 hours",
+            "locationTitle": "Service Areas",
+            "locationAreas": "Intra-District, Inter-City, Inter-State",
+            "locationDescription": "We serve residential and non-commercial projects",
+            "hoursTitle": "Business Hours",
+            "hoursWeekdays": "Mon - Sat: 9:00 AM - 6:00 PM",
+            "hoursSunday": "Sunday: By Appointment"
+        }
+    }
+}

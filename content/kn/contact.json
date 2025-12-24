@@ -1,0 +1,46 @@
+{
+    "meta": {
+        "title": "ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ - 5R ಅಸೋಸಿಯೇಟ್ಸ್"
+    },
+    "contact": {
+        "header": {
+            "title": "ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ",
+            "subtitle": "ಉಚಿತ ಸಮಾಲೋಚನೆ ಮತ್ತು ಉಲ್ಲೇಖಕ್ಕಾಗಿ ಸಂಪರ್ಕದಲ್ಲಿರಿ"
+        },
+        "form": {
+            "title": "ನಮಗೆ ಸಂದೇಶ ಕಳುಹಿಸಿ",
+            "nameLabel": "ನಿಮ್ಮ ಹೆಸರು",
+            "namePlaceholder": "ನಿಮ್ಮ ಹೆಸರನ್ನು ನಮೂದಿಸಿ",
+            "emailLabel": "ಇಮೇಲ್ ವಿಳಾಸ",
+            "emailPlaceholder": "ನಿಮ್ಮ ಇಮೇಲ್ ನಮೂದಿಸಿ",
+            "phoneLabel": "ದೂರವಾಣಿ ಸಂಖ್ಯೆ",
+            "phonePlaceholder": "ನಿಮ್ಮ ದೂರವಾಣಿ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ",
+            "serviceLabel": "ಅಗತ್ಯವಿರುವ ಸೇವೆ",
+            "serviceSelect": "ಸೇವೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ",
+            "serviceConstruction": "ನಿರ್ಮಾಣ",
+            "serviceInterior": "ಒಳಾಂಗಣ ವಿನ್ಯಾಸ",
+            "servicePainting": "ಪೇಂಟಿಂಗ್",
+            "serviceFabrication": "MS/SS ಫ್ಯಾಬ್ರಿಕೇಶನ್",
+            "serviceMultiple": "ಬಹು ಸೇವೆಗಳು",
+            "messageLabel": "ಯೋಜನೆ ವಿವರಗಳು",
+            "messagePlaceholder": "ನಿಮ್ಮ ಯೋಜನಾ ಅವಶ್ಯಕತೆಗಳ ಬಗ್ಗೆ ನಮಗೆ ತಿಳಿಸಿ...",
+            "submit": "ಸಂದೇಶ ಕಳುಹಿಸಿ"
+        },
+        "info": {
+            "title": "ಸಂಪರ್ಕದಲ್ಲಿರಿ",
+            "description": "ನಿಮ್ಮ ಪ್ರಶ್ನೆಗಳಿಗೆ ಉತ್ತರಿಸಲು ಮತ್ತು ನಿಮ್ಮ ಯೋಜನಾ ಅವಶ್ಯಕತೆಗಳನ್ನು ಚರ್ಚಿಸಲು ನಾವು ಇಲ್ಲಿದ್ದೇವೆ.",
+            "phoneTitle": "ದೂರವಾಣಿ",
+            "phoneNumber": "[ಸೇರಿಸಬೇಕು]",
+            "phoneAvailability": "ಕರೆಗಳು ಮತ್ತು ವಿಚಾರಣೆಗಳಿಗೆ ಲಭ್ಯವಿದೆ",
+            "emailTitle": "ಇಮೇಲ್",
+            "emailAddress": "[ಸೇರಿಸಬೇಕು]",
+            "emailResponse": "ನಾವು 24 ಗಂಟೆಗಳ ಒಳಗೆ ಪ್ರತಿಕ್ರಿಯಿಸುತ್ತೇವೆ",
+            "locationTitle": "ಸೇವಾ ಪ್ರದೇಶಗಳು",
+            "locationAreas": "ಜಿಲ್ಲೆಯೊಳಗೆ, ನಗರಗಳ ನಡುವೆ, ರಾಜ್ಯಗಳ ನಡುವೆ",
+            "locationDescription": "ನಾವು ವಸತಿ ಮತ್ತು ವಾಣಿಜ್ಯೇತರ ಯೋಜನೆಗಳಿಗೆ ಸೇವೆ ಸಲ್ಲಿಸುತ್ತೇವೆ",
+            "hoursTitle": "ವ್ಯವಹಾರ ಸಮಯ",
+            "hoursWeekdays": "ಸೋಮ - ಶನಿ: ಬೆಳಿಗ್ಗೆ 9:00 - ಸಂಜೆ 6:00",
+            "hoursSunday": "ಭಾನುವಾರ: ಅಪಾಯಿಂಟ್ಮೆಂಟ್ ಮೂಲಕ"
+        }
+    }
+}
