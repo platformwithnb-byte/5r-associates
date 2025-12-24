@@ -3,6 +3,10 @@
         "tagline": "One stop solutions for all your construction needs.",
         "logoAlt": "5R Associates logo"
     },
+    "lang": {
+        "en": "EN",
+        "kn": "ಕನ್ನಡ"
+    },
     "nav": {
         "home": "Home",
         "services": "Services",
@@ -10,6 +14,7 @@
         "portfolio": "Portfolio",
         "contact": "Contact"
     },
+    "nav.toggleLabel": "Toggle navigation",
     "footer": {
         "about": {
             "title": "5R Associates",
