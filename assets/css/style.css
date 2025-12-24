@@ -468,10 +468,12 @@ img {
     color: var(--primary-color);
     text-decoration: none;
 }
+
 .services-section .service-link:hover {
     color: var(--primary-color);
     text-decoration: none;
 }
+
 .service-card.open .service-link {
     display: none;
 }
@@ -639,10 +641,12 @@ img {
     color: var(--bg-white);
     margin-bottom: var(--spacing-sm);
 }
+
 .work-card p {
     color: #f3f6fb;
     opacity: 1;
 }
+
 .work-areas .section-title {
     text-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
     letter-spacing: 0.5px;

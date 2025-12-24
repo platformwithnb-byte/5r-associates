@@ -8,8 +8,10 @@ class ContentLoader {
 
     getCurrentPage() {
         const path = window.location.pathname;
-        const page = path.split('/').pop().replace('.html', '') || 'index';
-        return page === 'index' ? 'home' : page;
+        const last = path.split('/').filter(Boolean).pop() || '';
+        const page = last.replace('.html', '');
+        if (!page || page === 'index') return 'home';
+        return page;
     }
 
     async loadContent() {
