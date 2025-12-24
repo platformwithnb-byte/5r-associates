@@ -25,3 +25,7 @@ build/
 # Logs
 *.log
 npm-debug.log*
+Git/
+
+# Keep local Git tools out of repo
+
