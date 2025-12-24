@@ -1,11 +1,11 @@
 {
-  "meta": {
-    "description": "404 — Page not found"
-  },
-  "notFound": {
-    "title": "Page Not Found",
-    "tagline": "Sorry, we couldn’t find that page.",
-    "message": "The page you’re looking for doesn’t exist or was moved.",
-    "homeCta": "Go to Home"
-  }
+    "meta": {
+        "description": "404 — Page not found"
+    },
+    "notFound": {
+        "title": "Page Not Found",
+        "tagline": "Sorry, we couldn’t find that page.",
+        "message": "The page you’re looking for doesn’t exist or was moved.",
+        "homeCta": "Go to Home"
+    }
 }

@@ -14,7 +14,14 @@
         "portfolio": "Portfolio",
         "contact": "Contact"
     },
-    "nav.toggleLabel": "Toggle navigation",
+    "nav": {
+        "home": "Home",
+        "services": "Services",
+        "about": "About",
+        "portfolio": "Portfolio",
+        "contact": "Contact",
+        "toggleLabel": "Toggle navigation"
+    },
     "footer": {
         "about": {
             "title": "5R Associates",

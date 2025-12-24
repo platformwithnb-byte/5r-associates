@@ -8,6 +8,50 @@
             "title": "Our Services",
             "subtitle": "Essential residential services crafted with quality and care"
         },
+        "details": {
+            "construction": {
+                "intro": "Key properties of this service:",
+                "property1": "End-to-end project management",
+                "property2": "Quality materials and workmanship",
+                "property3": "Structural safety and compliance",
+                "property4": "On-time delivery"
+            },
+            "painting": {
+                "intro": "Key properties of this service:",
+                "property1": "Surface prep and priming",
+                "property2": "Premium, long-lasting finishes",
+                "property3": "Interior and exterior expertise",
+                "property4": "Waterproofing options"
+            },
+            "interior": {
+                "intro": "Key properties of this service:",
+                "property1": "Space planning",
+                "property2": "Material and finish selection",
+                "property3": "Lighting design",
+                "property4": "Custom cabinetry & furniture"
+            },
+            "fabrication": {
+                "intro": "Key properties of this service:",
+                "property1": "MS/SS gates and railings",
+                "property2": "Custom structural elements",
+                "property3": "Precision welding and finishing",
+                "property4": "On-site fitment"
+            },
+            "renovations": {
+                "intro": "Key properties of this service:",
+                "property1": "Extensions and upgrades",
+                "property2": "Makeovers respecting existing structure",
+                "property3": "Modern materials and finishes",
+                "property4": "Minimal disruption"
+            },
+            "management": {
+                "intro": "Key properties of this service:",
+                "property1": "Detailed scheduling",
+                "property2": "Transparent budgeting",
+                "property3": "Vendor coordination",
+                "property4": "Quality control"
+            }
+        },
         "cards": {
             "learnMore": "Learn More →",
             "construction": {

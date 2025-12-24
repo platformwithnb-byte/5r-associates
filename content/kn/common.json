@@ -12,9 +12,9 @@
         "services": "ಸೇವೆಗಳು",
         "about": "ನಮ್ಮ ಬಗ್ಗೆ",
         "portfolio": "ಪೋರ್ಟ್ಫೋಲಿಯೋ",
-        "contact": "ಸಂಪರ್ಕಿಸಿ"
+        "contact": "ಸಂಪರ್ಕಿಸಿ",
+        "toggleLabel": "ನ್ಯಾವಿಗೇಶನ್ ಟೊಗಲ್"
     },
-    "nav.toggleLabel": "ನ್ಯಾವಿಗೇಶನ್ ಟೊಗಲ್",
     "footer": {
         "about": {
             "title": "5R ಅಸೋಸಿಯೇಟ್ಸ್",

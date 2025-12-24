@@ -266,7 +266,7 @@ img {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 30% 50%, rgba(255, 138, 0, 0.2) 0%, transparent 50%);
+    background: radial-gradient(circle at 30% 50%, rgba(255, 138, 0, 0.1) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -277,24 +277,26 @@ img {
 }
 
 .hero-title {
-    font-size: 3rem;
+    font-size: 3.25rem;
     font-weight: 800;
     margin-bottom: var(--spacing-md);
-    text-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
+    color: #ffffff;
+    text-shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
 }
 
 .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     margin-bottom: var(--spacing-sm);
-    opacity: 0.9;
+    opacity: 0.95;
+    color: #eaeef7;
 }
 
 .hero-tagline {
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     color: var(--accent-teal-light);
     margin-bottom: var(--spacing-lg);
-    font-weight: 600;
-    letter-spacing: 0.01em;
+    font-weight: 700;
+    letter-spacing: 0.02em;
 }
 
 .hero-buttons {
@@ -1146,4 +1148,30 @@ img {
     .btn {
         width: 100%;
     }
+}
+
+/* --- Service card details (visibility and animation) --- */
+.service-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    margin-top: var(--spacing-md);
+}
+
+.service-card.open .service-details {
+    max-height: 1200px;
+}
+
+.service-card.open {
+    box-shadow: var(--shadow-lg);
+}
+
+/* --- Work Areas visibility tweaks --- */
+.work-card {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.work-card p {
+    color: var(--bg-white);
+    opacity: 0.9;
 }

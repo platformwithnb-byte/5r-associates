@@ -51,6 +51,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Services card "Learn More" single-open details
+    const detailButtons = document.querySelectorAll('.service-card .service-link[data-action="toggle-details"]');
+    const cards = document.querySelectorAll('.service-card');
+
+    detailButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const card = btn.closest('.service-card');
+            const details = card.querySelector('.service-details');
+
+            // Close all other cards
+            cards.forEach(c => {
+                if (c !== card) {
+                    c.classList.remove('open');
+                    const d = c.querySelector('.service-details');
+                    if (d) {
+                        d.setAttribute('aria-hidden', 'true');
+                    }
+                }
+            });
+
+            // Toggle current card
+            const isOpen = card.classList.contains('open');
+            if (isOpen) {
+                card.classList.remove('open');
+                details.setAttribute('aria-hidden', 'true');
+            } else {
+                card.classList.add('open');
+                details.setAttribute('aria-hidden', 'false');
+            }
+        });
+    });
+
     // Portfolio filter
     const filterBtns = document.querySelectorAll('.filter-btn');
 
