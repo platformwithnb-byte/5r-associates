@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://platformwithnb-byte.github.io/5r-associates/sitemap.xml
