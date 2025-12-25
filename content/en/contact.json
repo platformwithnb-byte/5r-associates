@@ -38,7 +38,8 @@
             "emailResponse": "We respond within 24 hours",
             "locationTitle": "Service Areas",
             "locationAreas": "Intra-District, Inter-City, Inter-State",
-            "locationDescription": "We serve residential projects across these areas""hoursTitle": "Business Hours",
+            "locationDescription": "We serve residential projects across these areas",
+            "hoursTitle": "Business Hours",
             "hoursWeekdays": "Mon - Sat: 9:00 AM - 6:00 PM",
             "hoursSunday": "Sunday: By Appointment"
         }

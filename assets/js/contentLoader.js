@@ -9,48 +9,69 @@ class ContentLoader {
     getCurrentPage() {
         const path = window.location.pathname;
         const last = path.split('/').filter(Boolean).pop() || '';
+
+        // If the URL ends with a folder (no file name), treat as home.
+        if (!last || !last.includes('.')) return 'home';
+
         const page = last.replace('.html', '');
         if (!page || page === 'index') return 'home';
         return page;
     }
 
     async loadContent() {
+        const cacheBust = Date.now();
         try {
-            const cacheBust = Date.now();
-
-            // Fetch selected language
-            const [commonData, pageData] = await Promise.all([
-                this.safeFetchJson(`content/${this.currentLang}/common.json?cb=${cacheBust}`),
-                this.safeFetchJson(`content/${this.currentLang}/${this.pageName}.json?cb=${cacheBust}`)
-            ]);
-
-            // Optional English fallback to fill missing keys when switching to kn
-            let baseCommon = {}, basePage = {};
-            if (this.currentLang !== 'en') {
-                [baseCommon, basePage] = await Promise.all([
-                    this.safeFetchJson(`content/en/common.json?cb=${cacheBust}`),
-                    this.safeFetchJson(`content/en/${this.pageName}.json?cb=${cacheBust}`)
-                ]);
-            }
-
-            const base = this.deepMerge(baseCommon, basePage);
-            const overlay = this.deepMerge(commonData, pageData);
-            this.content = this.deepMerge(base, overlay);
+            this.content = await this.fetchContentForPage(this.pageName, cacheBust);
             this.applyContent();
             return true;
         } catch (error) {
-            console.error('Error loading content:', error);
+            console.error(`Error loading content for page "${this.pageName}":`, error);
+
+            // Fallback: if the specific page JSON is missing, try home so UI isn't blank
+            if (this.pageName !== 'home') {
+                try {
+                    this.content = await this.fetchContentForPage('home', cacheBust);
+                    this.applyContent();
+                    return true;
+                } catch (fallbackError) {
+                    console.error('Fallback to home content failed:', fallbackError);
+                }
+            }
             return false;
         }
     }
 
+    async fetchContentForPage(page, cacheBust) {
+        // Fetch selected language
+        const [commonData, pageData] = await Promise.all([
+            this.safeFetchJson(`content/${this.currentLang}/common.json?cb=${cacheBust}`),
+            this.safeFetchJson(`content/${this.currentLang}/${page}.json?cb=${cacheBust}`)
+        ]);
+
+        // Optional English fallback to fill missing keys when switching to kn
+        let baseCommon = {}, basePage = {};
+        if (this.currentLang !== 'en') {
+            [baseCommon, basePage] = await Promise.all([
+                this.safeFetchJson(`content/en/common.json?cb=${cacheBust}`),
+                this.safeFetchJson(`content/en/${page}.json?cb=${cacheBust}`)
+            ]);
+        }
+
+        const base = this.deepMerge(baseCommon, basePage);
+        const overlay = this.deepMerge(commonData, pageData);
+        return this.deepMerge(base, overlay);
+    }
+
     applyContent() {
+        console.log('Applying content:', this.content);
         // Apply text content
         document.querySelectorAll('[data-i18n]').forEach(element => {
             const key = element.getAttribute('data-i18n');
             const value = this.getNestedValue(this.content, key);
-            if (value) {
-                element.textContent = value;
+            if (value !== undefined && value !== null) {
+                element.textContent = String(value);
+            } else {
+                console.warn(`Missing i18n key: ${key}`);
             }
         });
 
