@@ -606,12 +606,12 @@ img {
 
 /* Work Areas */
 .work-areas {
-    background: linear-gradient(135deg, #0f172a 0%, #111827 60%, #0b1220 100%);
-    color: var(--bg-white);
+    background: var(--bg-light);
+    color: var(--dark);
 }
 
 .work-areas .section-title {
-    color: var(--bg-white);
+    color: var(--primary-color);
 }
 
 .work-grid {
@@ -621,35 +621,30 @@ img {
 }
 
 .work-card {
-    background: rgba(15, 23, 42, 0.45);
-    backdrop-filter: blur(10px);
+    background: var(--bg-white);
     padding: var(--spacing-xl);
     border-radius: 14px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.24);
+    border: 1px solid rgba(15, 23, 42, 0.1);
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
 }
 
 .work-card:hover {
-    background: rgba(255, 255, 255, 0.16);
+    background: var(--bg-white);
     border-color: var(--accent-teal-light);
     transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
 }
 
 .work-card h3 {
-    color: var(--bg-white);
+    color: var(--primary-color);
     margin-bottom: var(--spacing-sm);
 }
 
 .work-card p {
-    color: #f3f6fb;
+    color: var(--gray);
     opacity: 1;
-}
-
-.work-areas .section-title {
-    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.35);
-    letter-spacing: 0.5px;
 }
 
 /* Coverage Section */
@@ -1189,14 +1184,4 @@ img {
 
 .service-card.open {
     box-shadow: var(--shadow-lg);
-}
-
-/* --- Work Areas visibility tweaks --- */
-.work-card {
-    background: rgba(255, 255, 255, 0.18);
-}
-
-.work-card p {
-    color: var(--bg-white);
-    opacity: 0.9;
 }

@@ -1,7 +1,7 @@
 {
     "meta": {
         "title": "About Us - 5R Associates",
-        "description": "Learn about 5R Associates — established in 1999 with 26+ years of excellence in construction, interior design, and painting."
+        "description": "Learn about 5R Associates — established in 1999 with {{years}}+ years of excellence in construction, interior design, and painting."
     },
     "about": {
         "header": {
@@ -10,7 +10,7 @@
         },
         "overview": {
             "title": "Our Story",
-            "founded": "Founded in 1999, 5R Associates has been serving clients for over 26 years with dedication, quality, and professionalism.",
+            "founded": "Founded in 1999, 5R Associates has been serving clients for over {{years}} years with dedication, quality, and professionalism.",
             "description": "We specialize in construction, interior design, and painting services for homes and apartments. Our commitment to excellence and customer satisfaction has made us a trusted name in the industry."
         },
         "mission": {
@@ -24,7 +24,7 @@
         "whyUs": {
             "title": "Why Choose Us",
             "experience": {
-                "title": "26+ Years Experience",
+                "title": "{{years}}+ Years Experience",
                 "description": "Established in 1999, we bring over two decades of industry expertise"
             },
             "quality": {

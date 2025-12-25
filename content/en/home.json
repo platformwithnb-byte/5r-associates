@@ -6,7 +6,7 @@
     "home": {
         "hero": {
             "title": "Building Dreams, Crafting Spaces",
-            "subtitle": "Professional construction, interior design, and painting services for over 26 years",
+            "subtitle": "Professional construction, interior design, and painting services for over {{years}} years",
             "ctaPrimary": "Get a Quote",
             "ctaSecondary": "View Our Work"
         },

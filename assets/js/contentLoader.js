@@ -4,6 +4,8 @@ class ContentLoader {
         this.currentLang = localStorage.getItem('lang') || 'en';
         this.content = {};
         this.pageName = this.getCurrentPage();
+        this.foundingYear = 1999;
+        this.yearOverride = this.getYearOverride();
     }
 
     getCurrentPage() {
@@ -69,7 +71,7 @@ class ContentLoader {
             const key = element.getAttribute('data-i18n');
             const value = this.getNestedValue(this.content, key);
             if (value !== undefined && value !== null) {
-                element.textContent = String(value);
+                element.textContent = this.interpolate(String(value));
             } else {
                 console.warn(`Missing i18n key: ${key}`);
             }
@@ -88,13 +90,42 @@ class ContentLoader {
                 if (!attr || !key) return;
                 const value = this.getNestedValue(this.content, key);
                 if (value !== undefined && value !== null) {
-                    element.setAttribute(attr, value);
+                    element.setAttribute(attr, this.interpolate(String(value)));
                 }
             });
         });
 
         // Update HTML lang attribute
         document.documentElement.lang = this.currentLang;
+    }
+
+    interpolate(text) {
+        try {
+            const years = this.calculateYearsSince(this.foundingYear);
+            return text
+                .replaceAll('{{years}}', String(years))
+                .replaceAll('{{years_since_1999}}', String(years));
+        } catch (e) {
+            return text;
+        }
+    }
+
+    calculateYearsSince(year) {
+        const currentYear = this.yearOverride ?? new Date().getFullYear();
+        return Math.max(0, currentYear - year);
+    }
+
+    getYearOverride() {
+        try {
+            const params = new URLSearchParams(window.location.search);
+            const candidate = params.get('year') || params.get('mockYear') || localStorage.getItem('mockYear');
+            if (!candidate) return null;
+            const y = parseInt(candidate, 10);
+            if (!isNaN(y) && y >= 1999 && y <= 9999) return y;
+            return null;
+        } catch (e) {
+            return null;
+        }
     }
 
     getNestedValue(obj, path) {
