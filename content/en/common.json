@@ -12,13 +12,6 @@
         "services": "Services",
         "about": "About",
         "portfolio": "Portfolio",
-        "contact": "Contact"
-    },
-    "nav": {
-        "home": "Home",
-        "services": "Services",
-        "about": "About",
-        "portfolio": "Portfolio",
         "contact": "Contact",
         "toggleLabel": "Toggle navigation"
     },
