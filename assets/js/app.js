@@ -212,6 +212,14 @@ function initCoverageInteractions() {
             renderCoverageDetails(detailsContainer, data[key]);
         });
     });
+
+    // Auto-select first available card so details show on load
+    const firstCard = grid.querySelector('.coverage-card[data-coverage]');
+    if (firstCard) {
+        firstCard.classList.add('active');
+        const firstKey = firstCard.getAttribute('data-coverage');
+        renderCoverageDetails(detailsContainer, data[firstKey]);
+    }
 }
 
 function renderCoverageDetails(container, datum) {
