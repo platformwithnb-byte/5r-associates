@@ -31,9 +31,15 @@
         },
         "contact": {
             "title": "Contact Info",
-            "phone": "Phone: [To be added]",
-            "email": "Email: [To be added]"
+            "phone": "Phone: N/A yet",
+            "email": "Email: N/A yet"
         },
         "copyright": "© 2025 5R Associates. All rights reserved."
+    },
+    "messages": {
+        "portfolio": {
+            "noItems": "No projects found in this category.",
+            "comingSoon": "Portfolio items coming soon..."
+        }
     }
 }

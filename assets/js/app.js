@@ -132,6 +132,26 @@ document.addEventListener('DOMContentLoaded', () => {
             initCoverageInteractions();
         }
     });
+
+    // Also initialize once on DOM ready in case data arrives later
+    if (document.querySelector('.coverage-grid')) {
+        initCoverageInteractions();
+    }
+
+    // Global delegation as ultimate fallback
+    document.addEventListener('click', (e) => {
+        const cardEl = e.target.closest && e.target.closest('.coverage-card[data-coverage]');
+        const grid = document.querySelector('.coverage-grid');
+        const detailsContainer = document.getElementById('coverageDetails');
+        if (cardEl && grid && detailsContainer) {
+            grid.querySelectorAll('.coverage-card').forEach(c => c.classList.remove('active'));
+            cardEl.classList.add('active');
+            const key = cardEl.getAttribute('data-coverage');
+            const fallbackTitle = cardEl.querySelector('h3')?.textContent?.trim();
+            const dataNow = (window.contentLoader?.content?.services?.coverage?.coverageData || {});
+            renderCoverageDetails(detailsContainer, dataNow[key], fallbackTitle);
+        }
+    });
 });
 
 // Portfolio items loader
@@ -151,7 +171,8 @@ async function loadPortfolioItems(filter = 'all') {
         console.error('Error loading portfolio items:', error);
         const grid = document.getElementById('portfolioGrid');
         if (grid) {
-            grid.innerHTML = '<p class="no-items">Portfolio items coming soon...</p>';
+            const msg = (window.contentLoader?.content?.common?.messages?.portfolio?.comingSoon) || 'Portfolio items coming soon...';
+            grid.innerHTML = `<p class="no-items">${msg}</p>`;
         }
     }
 }
@@ -161,7 +182,8 @@ function renderPortfolioItems(items) {
     if (!grid) return;
 
     if (items.length === 0) {
-        grid.innerHTML = '<p class="no-items">No projects found in this category.</p>';
+        const msg = (window.contentLoader?.content?.common?.messages?.portfolio?.noItems) || 'No projects found in this category.';
+        grid.innerHTML = `<p class="no-items">${msg}</p>`;
         return;
     }
 
@@ -186,12 +208,21 @@ function renderPortfolioItems(items) {
 }
 
 function formatServiceType(type) {
-    const types = {
+    const lang = window.contentLoader?.currentLang || 'en';
+    if (lang === 'kn') {
+        const kn = {
+            'construction': 'ನಿರ್ಮಾಣ',
+            'interior': 'ಒಳಾಂಗಣ ವಿನ್ಯಾಸ',
+            'painting': 'ಪೇಂಟಿಂಗ್'
+        };
+        return kn[type] || type;
+    }
+    const en = {
         'construction': 'Construction',
         'interior': 'Interior Design',
         'painting': 'Painting'
     };
-    return types[type] || type;
+    return en[type] || type;
 }
 
 // Coverage list rendering
@@ -200,16 +231,28 @@ function initCoverageInteractions() {
     const grid = document.querySelector('.coverage-grid');
     if (!detailsContainer || !grid || !window.contentLoader) return;
 
-    const data = contentLoader.content?.services?.coverage?.coverageData;
-    if (!data) return;
+    // Delegated handler for robustness
+    const handleActivate = (cardEl) => {
+        if (!cardEl) return;
+        const key = cardEl.getAttribute('data-coverage');
+        grid.querySelectorAll('.coverage-card').forEach(c => c.classList.remove('active'));
+        cardEl.classList.add('active');
+        const fallbackTitle = cardEl.querySelector('h3')?.textContent?.trim();
+        const dataNow = (contentLoader.content?.services?.coverage?.coverageData || {});
+        renderCoverageDetails(detailsContainer, dataNow[key], fallbackTitle);
+    };
 
-    // Attach handlers to specific cards
+    grid.addEventListener('click', (e) => {
+        const cardEl = e.target.closest('.coverage-card[data-coverage]');
+        if (cardEl) handleActivate(cardEl);
+    });
+
     grid.querySelectorAll('.coverage-card').forEach(card => {
-        const key = card.getAttribute('data-coverage');
-        card.addEventListener('click', () => {
-            grid.querySelectorAll('.coverage-card').forEach(c => c.classList.remove('active'));
-            card.classList.add('active');
-            renderCoverageDetails(detailsContainer, data[key]);
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleActivate(card);
+            }
         });
     });
 
@@ -218,13 +261,23 @@ function initCoverageInteractions() {
     if (firstCard) {
         firstCard.classList.add('active');
         const firstKey = firstCard.getAttribute('data-coverage');
-        renderCoverageDetails(detailsContainer, data[firstKey]);
+        const fallbackTitle = firstCard.querySelector('h3')?.textContent?.trim();
+        const dataNow = (contentLoader.content?.services?.coverage?.coverageData || {});
+        renderCoverageDetails(detailsContainer, dataNow[firstKey], fallbackTitle);
     }
 }
 
-function renderCoverageDetails(container, datum) {
-    if (!datum) { container.innerHTML = ''; return; }
-    const title = datum.placesTitle || datum.title || '';
+function renderCoverageDetails(container, datum, fallbackTitle) {
+    if (!datum) {
+        const pendingText = contentLoader.content?.services?.coverage?.coveragePending || 'Coverage details coming soon.';
+        const title = fallbackTitle || '';
+        container.innerHTML = title ? `
+            <h3 class="coverage-title">${title}</h3>
+            <p class="coverage-placeholder">${pendingText}</p>
+        ` : '';
+        return;
+    }
+    const title = datum.placesTitle || datum.title || fallbackTitle || '';
     const places = Array.isArray(datum.places) ? datum.places : [];
 
     // Show placeholder if places are empty

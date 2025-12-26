@@ -110,11 +110,19 @@
                 "interCity": {
                     "title": "Inter-City",
                     "placesTitle": "Covered Cities",
-                    "places": []
+                    "places": [
+                        "Mysuru",
+                        "Mandya",
+                        "Hassan",
+                        "Chamarajanagar",
+                        "Madikeri",
+                        "Bengaluru"
+                    ]
                 }
             },
-            "coveragePending": "Coverage details coming soon."
+            "coveragePending": "N/A yet"
         },
+        "ourServiceTitle": "OUR SERVICE",
         "cta": {
             "title": "Need Expert Residential Services?",
             "description": "Tell us about your project—we'll plan, budget, and deliver with care.",
