@@ -48,6 +48,19 @@
                 "description": "Serving intra-district, inter-city, and inter-state projects"
             }
         },
+        "team": {
+            "title": "Our Leadership",
+            "member1": {
+                "name": "Team Lead",
+                "role": "Project Director",
+                "bio": "With decades of experience in civil engineering and project management, our leader brings vision and expertise to every project we undertake."
+            },
+            "member2": {
+                "name": "Design Head",
+                "role": "Interior Design Specialist",
+                "bio": "Passionate about creating spaces that blend functionality with aesthetics, ensuring every design reflects client needs and modern trends."
+            }
+        },
         "serviceAreas": {
             "title": "Our Service Areas",
             "subtitle": "We undertake projects across multiple locations",

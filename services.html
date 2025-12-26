@@ -54,16 +54,17 @@
             <h2 data-i18n="services.coverage.title"></h2>
             <p data-i18n="services.coverage.description"></p>
             <div class="coverage-grid">
-                <div class="coverage-card">
+                <div class="coverage-card" data-coverage="interDistrict">
                     <h3 data-i18n="services.coverage.intraDistrict"></h3>
                 </div>
-                <div class="coverage-card">
+                <div class="coverage-card" data-coverage="interCity">
                     <h3 data-i18n="services.coverage.interCity"></h3>
                 </div>
-                <div class="coverage-card">
+                <div class="coverage-card" data-coverage="interState">
                     <h3 data-i18n="services.coverage.interState"></h3>
                 </div>
             </div>
+            <div id="coverageDetails" class="coverage-details" aria-live="polite"></div>
         </div>
     </section>
 

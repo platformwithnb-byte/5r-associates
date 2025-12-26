@@ -82,9 +82,38 @@
         "coverage": {
             "title": "Service Coverage",
             "description": "We deliver projects across multiple locations:",
-            "intraDistrict": "Intra-District Projects",
+            "intraDistrict": "Inter-District Projects",
             "interCity": "Inter-City Projects",
-            "interState": "Inter-State Projects"
+            "interState": "Inter-State Projects",
+            "coverageData": {
+                "interDistrict": {
+                    "title": "Inter-District",
+                    "placesTitle": "Covered Districts",
+                    "places": [
+                        "Mysuru",
+                        "Mandya",
+                        "Hassan",
+                        "Chamarajanagar",
+                        "Kodagu"
+                    ]
+                },
+                "interState": {
+                    "title": "Inter-State",
+                    "placesTitle": "Covered States",
+                    "places": [
+                        "Karnataka",
+                        "Tamil Nadu",
+                        "Kerala",
+                        "Andhra Pradesh"
+                    ]
+                },
+                "interCity": {
+                    "title": "Inter-City",
+                    "placesTitle": "Covered Cities",
+                    "places": []
+                }
+            },
+            "coveragePending": "Coverage details coming soon."
         },
         "cta": {
             "title": "Need Expert Residential Services?",

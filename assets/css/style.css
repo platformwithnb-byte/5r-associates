@@ -48,6 +48,14 @@
     --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.08);
     --shadow-lg: 0 22px 60px rgba(15, 23, 42, 0.12);
 
+    /* Portfolio category colors */
+    --construction-color: #f97316;
+    /* orange */
+    --interior-color: #14b8a6;
+    /* teal */
+    --painting-color: #3b82f6;
+    /* blue */
+
     /* Transitions */
     --transition: all 0.3s ease;
 }
@@ -677,6 +685,44 @@ img {
     color: var(--primary-color);
 }
 
+.coverage-card.active {
+    border-top-color: var(--secondary-color);
+    box-shadow: var(--shadow-md);
+}
+
+.coverage-details {
+    margin-top: var(--spacing-lg);
+    background: var(--bg-white);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+}
+
+.coverage-title {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.coverage-list {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: var(--spacing-sm);
+}
+
+.coverage-list li {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: var(--bg-light);
+    border-radius: 6px;
+}
+
+.coverage-placeholder {
+    color: var(--gray);
+    font-style: italic;
+    padding: var(--spacing-md) 0;
+}
+
 /* About Page */
 .about-overview {
     padding: var(--spacing-xxl) 0;
@@ -726,10 +772,31 @@ img {
     margin-bottom: var(--spacing-md);
 }
 
+.team-role {
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.95rem;
+}
+
+.team-section {
+    background: var(--bg-white);
+    padding: var(--spacing-xxl) 0;
+}
+
+.team-section .section-title {
+    margin-bottom: var(--spacing-xl);
+}
+
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--spacing-lg);
+}
+
+/* About page: keep two-column balance for Why Us */
+.why-us .features-grid {
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
 }
 
 .feature-card {
@@ -862,6 +929,19 @@ img {
     border-radius: 20px;
     font-size: 0.875rem;
     font-weight: 600;
+}
+
+/* Portfolio category badge colors */
+.portfolio-item[data-service="construction"] .service-badge {
+    background: var(--construction-color);
+}
+
+.portfolio-item[data-service="interior"] .service-badge {
+    background: var(--interior-color);
+}
+
+.portfolio-item[data-service="painting"] .service-badge {
+    background: var(--painting-color);
 }
 
 .portfolio-content {

@@ -6,6 +6,10 @@ class ContentLoader {
         this.pageName = this.getCurrentPage();
         this.foundingYear = 1999;
         this.yearOverride = this.getYearOverride();
+        this.cache = {
+            en: { common: null, pages: {} },
+            kn: { common: null, pages: {} }
+        };
     }
 
     getCurrentPage() {
@@ -44,19 +48,37 @@ class ContentLoader {
     }
 
     async fetchContentForPage(page, cacheBust) {
-        // Fetch selected language
-        const [commonData, pageData] = await Promise.all([
-            this.safeFetchJson(`content/${this.currentLang}/common.json?cb=${cacheBust}`),
-            this.safeFetchJson(`content/${this.currentLang}/${page}.json?cb=${cacheBust}`)
-        ]);
+        // Use in-memory cache when available to reduce fetch latency
+        const langCache = this.cache[this.currentLang];
+        const commonPromise = (async () => {
+            if (langCache.common) return langCache.common;
+            const data = await this.safeFetchJson(`content/${this.currentLang}/common.json?cb=${cacheBust}`);
+            langCache.common = data; return data;
+        })();
+
+        const pagePromise = (async () => {
+            if (langCache.pages[page]) return langCache.pages[page];
+            const data = await this.safeFetchJson(`content/${this.currentLang}/${page}.json?cb=${cacheBust}`);
+            langCache.pages[page] = data; return data;
+        })();
+
+        const [commonData, pageData] = await Promise.all([commonPromise, pagePromise]);
 
         // Optional English fallback to fill missing keys when switching to kn
         let baseCommon = {}, basePage = {};
         if (this.currentLang !== 'en') {
-            [baseCommon, basePage] = await Promise.all([
-                this.safeFetchJson(`content/en/common.json?cb=${cacheBust}`),
-                this.safeFetchJson(`content/en/${page}.json?cb=${cacheBust}`)
-            ]);
+            const enCache = this.cache['en'];
+            const enCommonPromise = (async () => {
+                if (enCache.common) return enCache.common;
+                const data = await this.safeFetchJson(`content/en/common.json?cb=${cacheBust}`);
+                enCache.common = data; return data;
+            })();
+            const enPagePromise = (async () => {
+                if (enCache.pages[page]) return enCache.pages[page];
+                const data = await this.safeFetchJson(`content/en/${page}.json?cb=${cacheBust}`);
+                enCache.pages[page] = data; return data;
+            })();
+            [baseCommon, basePage] = await Promise.all([enCommonPromise, enPagePromise]);
         }
 
         const base = this.deepMerge(baseCommon, basePage);
@@ -97,6 +119,11 @@ class ContentLoader {
 
         // Update HTML lang attribute
         document.documentElement.lang = this.currentLang;
+
+        // Notify listeners that i18n content is ready
+        try {
+            document.dispatchEvent(new CustomEvent('i18n:ready', { detail: { lang: this.currentLang, page: this.pageName } }));
+        } catch (e) { }
     }
 
     interpolate(text) {

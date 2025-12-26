@@ -125,6 +125,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Initialize coverage interactions when i18n is ready
+    document.addEventListener('i18n:ready', (ev) => {
+        if (ev.detail?.page === 'services') {
+            initCoverageInteractions();
+        }
+    });
 });
 
 // Portfolio items loader
@@ -185,6 +192,49 @@ function formatServiceType(type) {
         'painting': 'Painting'
     };
     return types[type] || type;
+}
+
+// Coverage list rendering
+function initCoverageInteractions() {
+    const detailsContainer = document.getElementById('coverageDetails');
+    const grid = document.querySelector('.coverage-grid');
+    if (!detailsContainer || !grid || !window.contentLoader) return;
+
+    const data = contentLoader.content?.services?.coverage?.coverageData;
+    if (!data) return;
+
+    // Attach handlers to specific cards
+    grid.querySelectorAll('.coverage-card').forEach(card => {
+        const key = card.getAttribute('data-coverage');
+        card.addEventListener('click', () => {
+            grid.querySelectorAll('.coverage-card').forEach(c => c.classList.remove('active'));
+            card.classList.add('active');
+            renderCoverageDetails(detailsContainer, data[key]);
+        });
+    });
+}
+
+function renderCoverageDetails(container, datum) {
+    if (!datum) { container.innerHTML = ''; return; }
+    const title = datum.placesTitle || datum.title || '';
+    const places = Array.isArray(datum.places) ? datum.places : [];
+
+    // Show placeholder if places are empty
+    if (places.length === 0) {
+        const pendingText = contentLoader.content?.services?.coverage?.coveragePending || 'Coverage details coming soon.';
+        container.innerHTML = `
+            <h3 class="coverage-title">${title}</h3>
+            <p class="coverage-placeholder">${pendingText}</p>
+        `;
+    } else {
+        container.innerHTML = `
+            <h3 class="coverage-title">${title}</h3>
+            <ul class="coverage-list">
+                ${places.map(p => `<li>${p}</li>`).join('')}
+            </ul>
+        `;
+    }
+    container.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 // Contact form handler
