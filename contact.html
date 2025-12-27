@@ -56,6 +56,8 @@
                 <div class="contact-form-wrapper">
                     <h2 data-i18n="contact.form.title"></h2>
                     <form class="contact-form" id="contactForm">
+                        <!-- Form fields - No longer sending directly to Web3Forms -->
+                        <!-- Now submitting to secure backend server at /api/submit-form -->
                         <div class="form-group">
                             <label for="name" data-i18n="contact.form.nameLabel"></label>
                             <input type="text" id="name" name="name" required
@@ -155,6 +157,28 @@
                                 <h3 data-i18n="contact.info.hoursTitle"></h3>
                                 <p data-i18n="contact.info.hoursWeekdays"></p>
                                 <p data-i18n="contact.info.hoursSunday"></p>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <div class="contact-icon">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M3 5 Q3 1 7 1 L25 1 Q29 1 29 5 L29 27 Q29 31 25 31 L7 31 Q3 31 3 27 Z" />
+                                    <path d="M7 6 L25 6" />
+                                    <path d="M10 12 Q8 14 8 17 Q8 20 10 22" />
+                                    <path d="M14 10 Q11 11 11 17 Q11 23 14 24" />
+                                    <path d="M18 10 Q15 11 15 17 Q15 23 18 24" />
+                                    <path d="M22 12 Q24 14 24 17 Q24 20 22 22" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 data-i18n="contact.info.whatsappTitle"></h3>
+                                <p data-i18n="contact.info.whatsappNumber"></p>
+                                <p data-i18n="contact.info.whatsappChat"></p>
+                                <a href="#" class="whatsapp-link" id="whatsappLink"
+                                    style="color: #25D366; text-decoration: none; font-weight: 600; display: inline-block; margin-top: 0.5rem;">Open
+                                    WhatsApp</a>
                             </div>
                         </div>
                     </div>

@@ -41,7 +41,10 @@
             "locationDescription": "We serve residential projects across these areas",
             "hoursTitle": "Business Hours",
             "hoursWeekdays": "Mon - Sat: 9:00 AM - 6:00 PM",
-            "hoursSunday": "Sunday: By Appointment"
+            "hoursSunday": "Sunday: By Appointment",
+            "whatsappTitle": "WhatsApp",
+            "whatsappNumber": "N/A yet",
+            "whatsappChat": "Chat with us directly"
         }
     }
 }

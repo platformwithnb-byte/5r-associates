@@ -31,17 +31,20 @@
             "title": "ಸಂಪರ್ಕದಲ್ಲಿರಿ",
             "description": "ನಿಮ್ಮ ಪ್ರಶ್ನೆಗಳಿಗೆ ಉತ್ತರಿಸಲು ಮತ್ತು ನಿಮ್ಮ ಯೋಜನಾ ಅವಶ್ಯಕತೆಗಳನ್ನು ಚರ್ಚಿಸಲು ನಾವು ಇಲ್ಲಿದ್ದೇವೆ.",
             "phoneTitle": "ದೂರವಾಣಿ",
-            "phoneNumber": "[ಸೇರಿಸಬೇಕು]",
+            "phoneNumber": "N/A yet",
             "phoneAvailability": "ಕರೆಗಳು ಮತ್ತು ವಿಚಾರಣೆಗಳಿಗೆ ಲಭ್ಯವಿದೆ",
             "emailTitle": "ಇಮೇಲ್",
-            "emailAddress": "[ಸೇರಿಸಬೇಕು]",
+            "emailAddress": "N/A yet",
             "emailResponse": "ನಾವು 24 ಗಂಟೆಗಳ ಒಳಗೆ ಪ್ರತಿಕ್ರಿಯಿಸುತ್ತೇವೆ",
             "locationTitle": "ಸೇವಾ ಪ್ರದೇಶಗಳು",
             "locationAreas": "ಜಿಲ್ಲೆಯೊಳಗೆ, ನಗರಗಳ ನಡುವೆ, ರಾಜ್ಯಗಳ ನಡುವೆ",
             "locationDescription": "ನಾವು ವಸತಿ ಮತ್ತು ವಾಣಿಜ್ಯೇತರ ಯೋಜನೆಗಳಿಗೆ ಸೇವೆ ಸಲ್ಲಿಸುತ್ತೇವೆ",
             "hoursTitle": "ವ್ಯವಹಾರ ಸಮಯ",
             "hoursWeekdays": "ಸೋಮ - ಶನಿ: ಬೆಳಿಗ್ಗೆ 9:00 - ಸಂಜೆ 6:00",
-            "hoursSunday": "ಭಾನುವಾರ: ಅಪಾಯಿಂಟ್ಮೆಂಟ್ ಮೂಲಕ"
+            "hoursSunday": "ಭಾನುವಾರ: ಅಪಾಯಿಂಟ್ಮೆಂಟ್ ಮೂಲಕ",
+            "whatsappTitle": "ವಾಟ್ಸಾಪ್",
+            "whatsappNumber": "N/A yet",
+            "whatsappChat": "ನಮ್ಮೊಂದಿಗೆ ನೇರವಾಗಿ ಚಾಟ್ ಮಾಡಿ"
         }
     }
 }

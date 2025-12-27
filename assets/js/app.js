@@ -118,6 +118,26 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', handleFormSubmit);
     }
 
+    // WhatsApp link handler
+    const whatsappLink = document.getElementById('whatsappLink');
+    if (whatsappLink) {
+        whatsappLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            const phoneNumber = (window.contentLoader?.content?.contact?.info?.whatsappNumber || 'N/A yet');
+
+            // Only open WhatsApp if number is available
+            if (phoneNumber === 'N/A yet') {
+                alert('WhatsApp number not available yet. Please contact us via email or phone.');
+                return;
+            }
+
+            // Format the message (pre-fill with inquiry template)
+            const message = encodeURIComponent('Hi, I am interested in your construction services. Can you please provide more information?');
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    }
+
     // Smooth scroll for anchor links (passive listener where possible)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -327,14 +347,16 @@ function renderCoverageDetails(container, datum, fallbackTitle) {
     container.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// Contact form handler
+// Contact form handler - Secure backend server integration
 async function handleFormSubmit(e) {
     e.preventDefault();
 
-    const formData = new FormData(e.target);
+    const form = e.target;
+    const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
-
     const messageDiv = document.getElementById('formMessage');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.textContent;
 
     // Simple validation
     if (!data.name || !data.email || !data.phone || !data.service || !data.message) {
@@ -349,23 +371,66 @@ async function handleFormSubmit(e) {
         return;
     }
 
-    // Show success message (in production, send to backend)
-    showMessage(messageDiv, 'Thank you for your message! We will contact you soon.', 'success');
-    e.target.reset();
+    // Show loading state
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    showMessage(messageDiv, 'Sending your message...', 'info');
 
-    // In production, you would send data to server:
-    // try {
-    //     const response = await fetch('/api/contact', {
-    //         method: 'POST',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: JSON.stringify(data)
-    //     });
-    //     if (response.ok) {
-    //         showMessage(messageDiv, 'Message sent successfully!', 'success');
-    //     }
-    // } catch (error) {
-    //     showMessage(messageDiv, 'Error sending message. Please try again.', 'error');
-    // }
+    try {
+        // Send to backend server (not directly to Web3Forms)
+        const response = await fetch('http://localhost:3000/api/submit-form', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: data.name,
+                email: data.email,
+                phone: data.phone,
+                service: data.service,
+                message: data.message
+            })
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+            // Format message for WhatsApp (same format as email)
+            const serviceOptions = {
+                'construction': 'Construction',
+                'interior': 'Interior Design',
+                'painting': 'Painting',
+                'fabrication': 'MS/SS Fabrication',
+                'multiple': 'Multiple Services'
+            };
+            const serviceName = serviceOptions[data.service] || data.service;
+
+            const whatsappMessage = `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nService: ${serviceName}\nMessage: ${data.message}`;
+            const whatsappPhoneNumber = (window.contentLoader?.content?.contact?.info?.whatsappNumber || 'N/A yet');
+
+            // Show success message (email follow-up only)
+            showMessage(messageDiv, "Thank you! Your message has been sent. We'll reply by email soon.", 'success');
+            form.reset();
+
+            // // Open WhatsApp if number is available (temporarily disabled)
+            // if (whatsappPhoneNumber !== 'N/A yet') {
+            //     const encodedMessage = encodeURIComponent(whatsappMessage);
+            //     const whatsappUrl = `https://wa.me/${whatsappPhoneNumber}?text=${encodedMessage}`;
+            //     setTimeout(() => {
+            //         window.open(whatsappUrl, '_blank');
+            //     }, 500);
+            // }
+        } else {
+            throw new Error(result.message || 'Submission failed');
+        }
+    } catch (error) {
+        console.error('Form submission error:', error);
+        showMessage(messageDiv, 'Error sending message. Please check if the server is running or try again later.', 'error');
+    } finally {
+        // Restore button state
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+    }
 }
 
 function showMessage(element, message, type) {
@@ -373,7 +438,10 @@ function showMessage(element, message, type) {
     element.className = `form-message ${type}`;
     element.style.display = 'block';
 
-    setTimeout(() => {
-        element.style.display = 'none';
-    }, 5000);
+    // Don't auto-hide loading messages
+    if (type !== 'info') {
+        setTimeout(() => {
+            element.style.display = 'none';
+        }, 5000);
+    }
 }

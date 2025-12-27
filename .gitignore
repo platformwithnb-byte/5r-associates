@@ -27,5 +27,8 @@ build/
 npm-debug.log*
 Git/
 
+# Encrypted response logs
+response/
+
 # Keep local Git tools out of repo
 
