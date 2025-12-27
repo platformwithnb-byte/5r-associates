@@ -253,6 +253,11 @@ img {
     color: var(--bg-white);
 }
 
+.lang-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 /* Hero Section */
 .hero {
     position: relative;
@@ -1193,6 +1198,14 @@ img {
     .nav-brand {
         order: 2;
         text-align: center;
+        max-width: calc(100% - 60px);
+        margin: 0 auto;
+    }
+
+    .nav-logo {
+        height: 40px;
+        max-width: 100%;
+        object-fit: contain;
     }
 
     .nav-toggle {
@@ -1201,6 +1214,7 @@ img {
         position: absolute;
         top: var(--spacing-md);
         right: var(--spacing-md);
+        z-index: 10;
     }
 
     .nav-menu {
@@ -1209,11 +1223,19 @@ img {
         width: 100%;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease;
+        transform: scaleY(0);
+        transform-origin: top;
+        opacity: 0;
+        transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+            opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+            max-height 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform, opacity;
     }
 
     .nav-menu.active {
         max-height: 400px;
+        transform: scaleY(1);
+        opacity: 1;
     }
 
     .lang-switcher {
@@ -1286,4 +1308,31 @@ img {
 
 .service-card.open {
     box-shadow: var(--shadow-lg);
+}
+
+/* Coverage hint and interactive card styles */
+.coverage-hint {
+    font-size: 0.95rem;
+    color: var(--gray);
+    margin-bottom: var(--spacing-sm);
+}
+
+.coverage-card,
+[data-coverage] {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.coverage-card:hover,
+.coverage-card:focus,
+[data-coverage]:hover,
+[data-coverage]:focus {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+    outline: none;
+}
+
+.coverage-card:focus-visible,
+[data-coverage]:focus-visible {
+    box-shadow: var(--shadow-md);
 }

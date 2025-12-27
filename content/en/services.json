@@ -82,6 +82,7 @@
         "coverage": {
             "title": "Service Coverage",
             "description": "We deliver projects across multiple locations:",
+            "hint": "Click a card to view covered locations.",
             "intraDistrict": "Inter-District Projects",
             "interCity": "Inter-City Projects",
             "interState": "Inter-State Projects",

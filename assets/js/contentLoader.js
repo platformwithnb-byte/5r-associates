@@ -10,6 +10,8 @@ class ContentLoader {
             en: { common: null, pages: {} },
             kn: { common: null, pages: {} }
         };
+        this._switching = false;
+        this._initialLoad = true;
     }
 
     getCurrentPage() {
@@ -25,7 +27,10 @@ class ContentLoader {
     }
 
     async loadContent() {
-        const cacheBust = Date.now();
+        // Only use cache-bust on initial load, not on language switches
+        const cacheBust = this._initialLoad !== false ? Date.now() : '';
+        if (this._initialLoad !== false) this._initialLoad = false;
+
         try {
             this.content = await this.fetchContentForPage(this.pageName, cacheBust);
             this.applyContent();
@@ -182,15 +187,28 @@ class ContentLoader {
 
     async switchLanguage(lang) {
         if (this.currentLang === lang) return;
+        if (this._switching) return; // Prevent double-clicks
+
+        this._switching = true;
+
+        // Immediate visual feedback
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+            btn.disabled = true;
+        });
 
         this.currentLang = lang;
         localStorage.setItem('lang', lang);
-        await this.loadContent();
 
-        // Update language buttons
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
-        });
+        try {
+            await this.loadContent();
+        } finally {
+            // Re-enable buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.disabled = false;
+            });
+            this._switching = false;
+        }
     }
 }
 

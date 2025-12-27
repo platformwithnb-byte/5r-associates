@@ -11,11 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Sticky navbar on scroll
+    // Sticky navbar on scroll with throttling for performance
     const navbar = document.getElementById('navbar');
     let lastScroll = 0;
+    let ticking = false;
 
-    window.addEventListener('scroll', () => {
+    const updateNavbar = () => {
         const currentScroll = window.pageYOffset;
 
         if (currentScroll > 100) {
@@ -25,7 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         lastScroll = currentScroll;
-    });
+        ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(updateNavbar);
+            ticking = true;
+        }
+    }, { passive: true });
 
     // Services accordion (single-open behavior)
     const accordionHeaders = document.querySelectorAll('.accordion-header');
@@ -109,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', handleFormSubmit);
     }
 
-    // Smooth scroll for anchor links
+    // Smooth scroll for anchor links (passive listener where possible)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
@@ -123,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
             }
-        });
+        }, { passive: false });
     });
 
     // Initialize coverage interactions when i18n is ready
@@ -138,12 +147,22 @@ document.addEventListener('DOMContentLoaded', () => {
         initCoverageInteractions();
     }
 
-    // Global delegation as ultimate fallback
+    // Global delegation as ultimate fallback with toggle support
     document.addEventListener('click', (e) => {
         const cardEl = e.target.closest && e.target.closest('.coverage-card[data-coverage]');
         const grid = document.querySelector('.coverage-grid');
         const detailsContainer = document.getElementById('coverageDetails');
         if (cardEl && grid && detailsContainer) {
+            const isActive = cardEl.classList.contains('active');
+
+            // If clicking the active card, collapse it
+            if (isActive) {
+                cardEl.classList.remove('active');
+                detailsContainer.innerHTML = '';
+                return;
+            }
+
+            // Otherwise, activate this card and show details
             grid.querySelectorAll('.coverage-card').forEach(c => c.classList.remove('active'));
             cardEl.classList.add('active');
             const key = cardEl.getAttribute('data-coverage');
@@ -231,9 +250,19 @@ function initCoverageInteractions() {
     const grid = document.querySelector('.coverage-grid');
     if (!detailsContainer || !grid || !window.contentLoader) return;
 
-    // Delegated handler for robustness
+    // Delegated handler for robustness with toggle functionality
     const handleActivate = (cardEl) => {
         if (!cardEl) return;
+        const isActive = cardEl.classList.contains('active');
+
+        // If clicking the active card, collapse it
+        if (isActive) {
+            cardEl.classList.remove('active');
+            detailsContainer.innerHTML = '';
+            return;
+        }
+
+        // Otherwise, activate this card and show details
         const key = cardEl.getAttribute('data-coverage');
         grid.querySelectorAll('.coverage-card').forEach(c => c.classList.remove('active'));
         cardEl.classList.add('active');
